@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>API search</title>
+    </head>
+    <body>
+        <div>
+            <div style="width:60%; height: 20%; background-color: rgb(243, 196, 78); margin-left: 20px; 
+            margin-top: 50px;text-align: center; text-shadow: 10cm; border-radius: 10px;">
+            <br>
+            <p><h2>JavaScript filtering in an API <br>
+                response with textbox
+            </h2></p>
+            <br>
+            <div style="background-color: rgb(164, 164, 224); border-radius: 10px;"><br>
+                <input type="search" id="textBox" style ="width:50%">
+                <div id="result"></div>
+                <script>
+                    //fetching all users from a REST API
+                    fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response => response.json())
+                    .then(users => showUsers(users));
+                    function showUsers(users) {
+                        const ul = document.createElement("ul");
+                        for (let user of users) {
+                            const li = document.createElement("li");
+                            li.innerText = user.name;
+                            ul.appendChild(li);
+                        } result.appendChild(ul);
+                    }
+                    // let's filter users list
+                    textBox.oninput = filterUsers;
+                    function filterUsers(){
+                        const liElements = document.querySelectorAll("li");
+                        for (let li of liElements){
+                            const currentName = li.innerText.toLowerCase();
+                            const searchText = this.value.toLowerCase();
+                            if (!currentName.includes(searchText))
+                            li.setAttribute('hidden', true);
+                            else li.removeAttribute('hidden');
+                        }
+                    }
+                </script>
+            </div>
+            
+            </div>
+         </div>
+        </div>
+    </body>
+
+</html>
