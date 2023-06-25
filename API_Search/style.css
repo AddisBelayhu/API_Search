@@ -1,16 +1,19 @@
 .divOne {
     width:30%; 
-    height: 20%; 
+    height: 10%; 
     background-color: rgb(243, 196, 78);
      margin-left: 20px; 
     margin-top: 50px;
     text-align: center; 
-    text-shadow: 10cm"
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 .divTwo{
     width:30%; 
     margin-left: 20px; 
     background-color: rgb(164, 164, 224);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .divThree{
